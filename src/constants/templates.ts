@@ -1,0 +1,58 @@
+import type { TemplateItem } from '../types';
+
+export const TEMPLATES: TemplateItem[] = [
+  {
+    id: "blog-post",
+    label: "Blog Post",
+    icon: "✍️",
+    category: "Writing",
+    prompt: "write something about dogs for my blog",
+    promptType: "writing",
+    tone: "casual",
+  },
+  {
+    id: "code-review",
+    label: "Code Review",
+    icon: "🔍",
+    category: "Coding",
+    prompt: "review my code and tell me what's wrong",
+    promptType: "coding",
+    tone: "technical",
+  },
+  {
+    id: "email-draft",
+    label: "Email Draft",
+    icon: "📧",
+    category: "Writing",
+    prompt: "write an email to my client about project delay",
+    promptType: "writing",
+    tone: "professional",
+  },
+  {
+    id: "data-analysis",
+    label: "Data Analysis",
+    icon: "📊",
+    category: "Data",
+    prompt: "analyze this data and tell me what you find",
+    promptType: "data",
+    tone: "professional",
+  },
+  {
+    id: "image-gen",
+    label: "Image Generation",
+    icon: "🎨",
+    category: "Image",
+    prompt: "a beautiful landscape photo",
+    promptType: "image",
+    tone: "auto",
+  },
+  {
+    id: "summary",
+    label: "Summarize",
+    icon: "📝",
+    category: "Analysis",
+    prompt: "summarize this text for me",
+    promptType: "analysis",
+    tone: "professional",
+  },
+];
