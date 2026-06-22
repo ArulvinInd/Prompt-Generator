@@ -4,6 +4,7 @@ import { DEFAULT_MODEL } from './utils/copilot';
 import { usePromptOptimizer } from './hooks/usePromptOptimizer';
 import { usePromptHistory } from './hooks/usePromptHistory';
 import { useTheme } from './hooks/useTheme';
+import { usePWAInstall } from './hooks/usePWAInstall';
 import { PromptInput } from './components/PromptInput';
 import { PromptOutput } from './components/PromptOutput';
 import { ImprovementsPanel } from './components/ImprovementsPanel';
@@ -14,6 +15,7 @@ import { ThemeToggle } from './components/ThemeToggle';
 import { BackgroundScene } from './components/BackgroundScene';
 import { BgAnimationPicker } from './components/BgAnimationPicker';
 import { TranslatorPanel } from './components/TranslatorPanel';
+import { PWAInstallBanner } from './components/PWAInstallBanner';
 
 export default function App() {
   // Input state (lifted so templates can pre-fill)
@@ -28,6 +30,8 @@ export default function App() {
     return (localStorage.getItem('bg_animation') as BgAnimation | null) ?? 'orbs';
   });
   const resultsRef = useRef<HTMLDivElement>(null);
+
+  const { isInstallable, install, dismiss } = usePWAInstall();
 
   const { result, isLoading, error, optimize } = usePromptOptimizer();
   const { history, addItem, deleteItem, clearAll } = usePromptHistory();
@@ -248,6 +252,10 @@ export default function App() {
         onDelete={deleteItem}
         onClearAll={clearAll}
       />
+
+      {isInstallable && (
+        <PWAInstallBanner onInstall={install} onDismiss={dismiss} />
+      )}
     </div>
   );
 }
