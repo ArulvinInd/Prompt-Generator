@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import type { HistoryItem } from '../types';
 import { PROMPT_TYPE_LABELS } from '../constants/labels';
+import { Backdrop } from './Backdrop';
 
 interface HistoryDrawerProps {
   isOpen: boolean;
@@ -54,13 +55,7 @@ export function HistoryDrawer({
 
   return (
     <>
-      {/* Overlay */}
-      <div
-        className={`fixed inset-0 bg-black/50 backdrop-blur-sm z-40 transition-opacity duration-300 ${
-          isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none invisible"
-        }`}
-        onClick={onClose}
-      />
+      <Backdrop isOpen={isOpen} onClick={onClose} />
 
       {/* Drawer */}
       <aside

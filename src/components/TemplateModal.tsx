@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import type { TemplateItem, TemplateCategory } from '../types';
 import { TEMPLATES } from '../constants/templates';
+import { Backdrop } from './Backdrop';
 
 interface TemplateModalProps {
   isOpen: boolean;
@@ -57,14 +58,7 @@ export function TemplateModal({ isOpen, onClose, onSelect }: TemplateModalProps)
 
   return (
     <>
-      {/* Backdrop */}
-      <div
-        className={`fixed inset-0 z-40 bg-black/60 backdrop-blur-sm transition-opacity duration-200 ${
-          isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none invisible'
-        }`}
-        onClick={onClose}
-        aria-hidden
-      />
+      <Backdrop isOpen={isOpen} onClick={onClose} bg="bg-black/60" duration={200} />
 
       {/* Modal */}
       <div
