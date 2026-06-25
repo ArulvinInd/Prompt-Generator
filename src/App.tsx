@@ -78,7 +78,7 @@ export default function App() {
       <BackgroundScene animation={bgAnimation} />
 
       {/* Header */}
-      <header className="relative z-40 border-b border-slate-200/80 dark:border-slate-800/50 bg-white/70 dark:bg-slate-900/60 backdrop-blur-md">
+      <header className="relative z-40 border-b border-slate-200/80 dark:border-slate-800/50 bg-white/70 dark:bg-slate-900/60 backdrop-blur-md [backface-visibility:hidden]">
         <div className="mx-auto max-w-3xl px-4 py-3 flex items-center gap-3">
           {/* Brand */}
           <div className="flex items-center gap-2 mr-auto">
@@ -97,7 +97,7 @@ export default function App() {
             <button
               onClick={() => setIsSettingsOpen((v) => !v)}
               title="Background options"
-              className={`rounded-lg border px-2.5 py-1.5 transition-all ${
+              className={`rounded-lg border px-2.5 py-1.5 transition-[color,border-color,background-color] ${
                 isSettingsOpen
                   ? 'border-brand-500 bg-brand-500/10 text-brand-600 dark:text-brand-300'
                   : 'border-slate-300 dark:border-slate-700 bg-white/60 dark:bg-slate-800/60 text-slate-500 dark:text-slate-400 hover:border-brand-400 dark:hover:border-brand-600 hover:text-brand-600 dark:hover:text-brand-300'
@@ -118,7 +118,7 @@ export default function App() {
           {/* Templates button */}
           <button
             onClick={() => setIsTemplateModalOpen(true)}
-            className="flex items-center gap-1.5 rounded-lg border border-slate-300 dark:border-slate-700 bg-white/60 dark:bg-slate-800/60 px-3 py-1.5 text-sm text-slate-600 dark:text-slate-300 hover:border-brand-500 hover:text-brand-600 dark:hover:text-brand-300 transition-all"
+            className="flex items-center gap-1.5 rounded-lg border border-slate-300 dark:border-slate-700 bg-white/60 dark:bg-slate-800/60 px-3 py-1.5 text-sm text-slate-600 dark:text-slate-300 hover:border-brand-500 hover:text-brand-600 dark:hover:text-brand-300 transition-[color,border-color,background-color]"
           >
             <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 10h16M4 14h16M4 18h16" />
@@ -129,7 +129,7 @@ export default function App() {
           {/* History button */}
           <button
             onClick={() => setIsHistoryOpen(true)}
-            className="flex items-center gap-1.5 rounded-lg border border-slate-300 dark:border-slate-700 bg-white/60 dark:bg-slate-800/60 px-3 py-1.5 text-sm text-slate-600 dark:text-slate-300 hover:border-brand-500 hover:text-brand-600 dark:hover:text-brand-300 transition-all"
+            className="flex items-center gap-1.5 rounded-lg border border-slate-300 dark:border-slate-700 bg-white/60 dark:bg-slate-800/60 px-3 py-1.5 text-sm text-slate-600 dark:text-slate-300 hover:border-brand-500 hover:text-brand-600 dark:hover:text-brand-300 transition-[color,border-color,background-color]"
           >
             <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -199,7 +199,7 @@ export default function App() {
         {result && (
           <div ref={resultsRef} className="space-y-6 animate-fade-in">
             {/* Token stats */}
-            <section className="rounded-2xl border border-slate-200/80 dark:border-slate-800/60 bg-white/80 dark:bg-slate-900/60 backdrop-blur-sm p-6 shadow-lg dark:shadow-xl">
+            <section className="rounded-2xl border border-slate-200/80 dark:border-slate-800/60 bg-white/80 dark:bg-slate-900/60 backdrop-blur-sm p-6 shadow-lg dark:shadow-xl [content-visibility:auto] [contain-intrinsic-size:auto_160px]">
               <TokenStats
                 originalTokens={result.originalTokens}
                 optimizedTokens={result.optimizedTokens}
@@ -208,7 +208,7 @@ export default function App() {
             </section>
 
             {/* Optimized prompt + Improvements + Translator */}
-            <section className="rounded-2xl border border-slate-200/80 dark:border-slate-800/60 bg-white/80 dark:bg-slate-900/60 backdrop-blur-sm p-6 shadow-lg dark:shadow-xl space-y-6">
+            <section className="rounded-2xl border border-slate-200/80 dark:border-slate-800/60 bg-white/80 dark:bg-slate-900/60 backdrop-blur-sm p-6 shadow-lg dark:shadow-xl space-y-6 [content-visibility:auto] [contain-intrinsic-size:auto_500px]">
               <PromptOutput optimizedPrompt={result.optimizedPrompt} />
               <div className="border-t border-slate-200 dark:border-slate-800 pt-5">
                 <ImprovementsPanel improvements={result.improvements} />
@@ -220,7 +220,7 @@ export default function App() {
 
         {/* Loading skeleton */}
         {isLoading && (
-          <section ref={resultsRef} className="rounded-2xl border border-slate-200/80 dark:border-slate-800/60 bg-white/80 dark:bg-slate-900/60 backdrop-blur-sm p-6 shadow-lg dark:shadow-xl">
+          <section ref={resultsRef} className="rounded-2xl border border-slate-200/80 dark:border-slate-800/60 bg-white/80 dark:bg-slate-900/60 backdrop-blur-sm p-6 shadow-lg dark:shadow-xl [content-visibility:auto] [contain-intrinsic-size:auto_200px]">
             <div className="animate-pulse space-y-4">
               <div className="flex items-center gap-2 mb-2">
                 <div className="h-3 w-3 rounded-full bg-brand-400 dark:bg-brand-700 animate-bounce [animation-delay:0ms]" />
