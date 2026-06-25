@@ -57,7 +57,7 @@ export function HistoryDrawer({
       {/* Overlay */}
       <div
         className={`fixed inset-0 bg-black/50 backdrop-blur-sm z-40 transition-opacity duration-300 ${
-          isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+          isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none invisible"
         }`}
         onClick={onClose}
       />
@@ -66,7 +66,7 @@ export function HistoryDrawer({
       <aside
         aria-label="Prompt History"
         aria-hidden={!isOpen}
-        className={`fixed top-0 right-0 h-full w-80 max-w-full bg-white dark:bg-slate-900 border-l border-slate-200 dark:border-slate-800 z-50 flex flex-col shadow-2xl transition-transform duration-300 ${
+        className={`fixed top-0 right-0 h-full w-80 max-w-full bg-white dark:bg-slate-900 border-l border-slate-200 dark:border-slate-800 z-50 flex flex-col shadow-2xl transition-transform duration-300 [will-change:transform] ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >

@@ -60,7 +60,7 @@ export function TemplateModal({ isOpen, onClose, onSelect }: TemplateModalProps)
       {/* Backdrop */}
       <div
         className={`fixed inset-0 z-40 bg-black/60 backdrop-blur-sm transition-opacity duration-200 ${
-          isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+          isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none invisible'
         }`}
         onClick={onClose}
         aria-hidden
@@ -71,7 +71,7 @@ export function TemplateModal({ isOpen, onClose, onSelect }: TemplateModalProps)
         role="dialog"
         aria-modal="true"
         aria-label="Template Browser"
-        className={`fixed inset-0 z-50 flex items-center justify-center p-4 transition-all duration-200 ${
+        className={`fixed inset-0 z-50 flex items-center justify-center p-4 transition-[opacity,transform] duration-200 [will-change:opacity,transform] ${
           isOpen ? 'opacity-100 scale-100 pointer-events-auto' : 'opacity-0 scale-95 pointer-events-none'
         }`}
       >
