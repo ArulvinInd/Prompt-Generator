@@ -1,32 +1,17 @@
-import type { PromptType, ToneType, CopilotModel } from '../types';
-import { PROMPT_TYPE_LABELS, TONE_LABELS, MODEL_LABELS } from '../constants/labels';
-
 const MAX_CHARS = 2000;
 const WARN_THRESHOLD = 0.8; // show amber at 80%
 
 interface PromptInputProps {
   prompt: string;
-  promptType: PromptType;
-  tone: ToneType;
-  model: CopilotModel;
   isLoading: boolean;
   onPromptChange: (value: string) => void;
-  onPromptTypeChange: (value: PromptType) => void;
-  onToneChange: (value: ToneType) => void;
-  onModelChange: (value: CopilotModel) => void;
   onSubmit: () => void;
 }
 
 export function PromptInput({
   prompt,
-  promptType,
-  tone,
-  model,
   isLoading,
   onPromptChange,
-  onPromptTypeChange,
-  onToneChange,
-  onModelChange,
   onSubmit,
 }: PromptInputProps) {
   const wordCount = prompt.trim() ? prompt.trim().split(/\s+/).length : 0;
@@ -107,56 +92,6 @@ export function PromptInput({
         </div>
       </div>
 
-      <div className="flex flex-wrap gap-3 items-end">
-        <div className="flex-1 min-w-[140px]">
-          <label htmlFor="prompt-type" className="block text-xs font-medium text-slate-500 dark:text-slate-400 mb-1">
-            Prompt Type
-          </label>
-          <select
-            id="prompt-type"
-            value={promptType}
-            onChange={(e) => onPromptTypeChange(e.target.value as PromptType)}
-            className="w-full rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 px-3 py-2 text-sm text-slate-800 dark:text-slate-200 outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 cursor-pointer"
-          >
-            {Object.entries(PROMPT_TYPE_LABELS).map(([value, label]) => (
-              <option key={value} value={value}>{label}</option>
-            ))}
-          </select>
-        </div>
-
-        <div className="flex-1 min-w-[140px]">
-          <label htmlFor="tone" className="block text-xs font-medium text-slate-500 dark:text-slate-400 mb-1">
-            Tone
-          </label>
-          <select
-            id="tone"
-            value={tone}
-            onChange={(e) => onToneChange(e.target.value as ToneType)}
-            className="w-full rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 px-3 py-2 text-sm text-slate-800 dark:text-slate-200 outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 cursor-pointer"
-          >
-            {Object.entries(TONE_LABELS).map(([value, label]) => (
-              <option key={value} value={value}>{label}</option>
-            ))}
-          </select>
-        </div>
-
-        <div className="w-full sm:w-auto sm:flex-1 min-w-[160px]">
-          <label htmlFor="model" className="block text-xs font-medium text-slate-500 dark:text-slate-400 mb-1">
-            Model
-          </label>
-          <select
-            id="model"
-            value={model}
-            onChange={(e) => onModelChange(e.target.value as CopilotModel)}
-            className="w-full rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 px-3 py-2 text-sm text-slate-800 dark:text-slate-200 outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 cursor-pointer"
-          >
-            {Object.entries(MODEL_LABELS).map(([value, label]) => (
-              <option key={value} value={value}>{label}</option>
-            ))}
-          </select>
-        </div>
-      </div>
-
       {/* Full-width Generate button */}
       <button
         type="submit"
@@ -187,5 +122,4 @@ export function PromptInput({
     </form>
   );
 }
-
 
