@@ -335,30 +335,44 @@ export default function App() {
                 <div className="grid gap-4 sm:grid-cols-2">
                   <div>
                     <label htmlFor="settings-prompt-type" className="mb-1 block text-xs font-medium text-slate-500 dark:text-slate-400">Prompt Type</label>
-                    <select
-                      id="settings-prompt-type"
-                      value={promptType}
-                      onChange={(e) => setPromptType(e.target.value as PromptType)}
-                      className="w-full rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 py-2 text-sm text-slate-800 dark:text-slate-200 outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500"
-                    >
-                      {Object.entries(PROMPT_TYPE_LABELS).map(([value, label]) => (
-                        <option key={value} value={value}>{label}</option>
-                      ))}
-                    </select>
+                    <div className="relative">
+                      <select
+                        id="settings-prompt-type"
+                        value={promptType}
+                        onChange={(e) => setPromptType(e.target.value as PromptType)}
+                        className="w-full appearance-none rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 py-2 pr-10 text-sm text-slate-800 dark:text-slate-200 outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500"
+                      >
+                        {Object.entries(PROMPT_TYPE_LABELS).map(([value, label]) => (
+                          <option key={value} value={value}>{label}</option>
+                        ))}
+                      </select>
+                      <span className="pointer-events-none absolute inset-y-0 right-3 flex items-center text-slate-500 dark:text-slate-400">
+                        <svg className="h-4 w-4" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                          <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                      </span>
+                    </div>
                   </div>
 
                   <div>
                     <label htmlFor="settings-tone" className="mb-1 block text-xs font-medium text-slate-500 dark:text-slate-400">Tone</label>
-                    <select
-                      id="settings-tone"
-                      value={tone}
-                      onChange={(e) => setTone(e.target.value as ToneType)}
-                      className="w-full rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 py-2 text-sm text-slate-800 dark:text-slate-200 outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500"
-                    >
-                      {Object.entries(TONE_LABELS).map(([value, label]) => (
-                        <option key={value} value={value}>{label}</option>
-                      ))}
-                    </select>
+                    <div className="relative">
+                      <select
+                        id="settings-tone"
+                        value={tone}
+                        onChange={(e) => setTone(e.target.value as ToneType)}
+                        className="w-full appearance-none rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 py-2 pr-10 text-sm text-slate-800 dark:text-slate-200 outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500"
+                      >
+                        {Object.entries(TONE_LABELS).map(([value, label]) => (
+                          <option key={value} value={value}>{label}</option>
+                        ))}
+                      </select>
+                      <span className="pointer-events-none absolute inset-y-0 right-3 flex items-center text-slate-500 dark:text-slate-400">
+                        <svg className="h-4 w-4" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                          <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                      </span>
+                    </div>
                   </div>
                 </div>
               </section>
@@ -367,16 +381,23 @@ export default function App() {
                 <h3 className="text-sm font-semibold text-slate-800 dark:text-slate-100">AI Model</h3>
                 <div>
                   <label htmlFor="settings-model" className="mb-1 block text-xs font-medium text-slate-500 dark:text-slate-400">Model</label>
-                  <select
-                    id="settings-model"
-                    value={model}
-                    onChange={(e) => setModel(e.target.value as CopilotModel)}
-                    className="w-full rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 py-2 text-sm text-slate-800 dark:text-slate-200 outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500"
-                  >
-                    {Object.entries(MODEL_LABELS).map(([value, label]) => (
-                      <option key={value} value={value}>{label}</option>
-                    ))}
-                  </select>
+                  <div className="relative">
+                    <select
+                      id="settings-model"
+                      value={model}
+                      onChange={(e) => setModel(e.target.value as CopilotModel)}
+                      className="w-full appearance-none rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 py-2 pr-10 text-sm text-slate-800 dark:text-slate-200 outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500"
+                    >
+                      {Object.entries(MODEL_LABELS).map(([value, label]) => (
+                        <option key={value} value={value}>{label}</option>
+                      ))}
+                    </select>
+                    <span className="pointer-events-none absolute inset-y-0 right-3 flex items-center text-slate-500 dark:text-slate-400">
+                      <svg className="h-4 w-4" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                        <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    </span>
+                  </div>
                 </div>
               </section>
 
