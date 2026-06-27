@@ -123,8 +123,7 @@ export default function App() {
           <div className="flex items-center gap-2 mr-auto">
             <span className="text-2xl">🪄</span>
             <div>
-              <h1 className="text-lg font-bold text-slate-900 dark:text-white leading-none">Prompt Generator</h1>
-              <p className="text-xs text-slate-400 dark:text-slate-500">Powered by GitHub Copilot</p>
+              <h1 className="text-lg font-bold text-slate-900 dark:text-white leading-none">Pompt Gen</h1>
             </div>
           </div>
 
